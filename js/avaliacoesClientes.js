@@ -36,25 +36,16 @@ function montarAvaliacao(json) {
     const descricaoUsuario = document.createElement("p");
     descricaoUsuario.innerText = json.Descricao;
 
-    const rating1 = document.createElement("i");
-    rating1.classList.add("fa", "!text-[#89A992]", "fa-star");
-
-    const rating2 = document.createElement("i");
-    rating2.classList.add("fa", "!text-[#89A992]", "fa-star");
-
-    const rating3 = document.createElement("i");
-    rating3.classList.add("fa", "!text-[#89A992]", "fa-star");
-
-    const rating4 = document.createElement("i");
-    rating4.classList.add("fa", "!text-[#89A992]", "fa-star");
-
-    const rating5 = document.createElement("i");
-    rating5.classList.add("fa", "!text-[#89A992]", "fa-star");
-
     const divRating = document.createElement("div");
     divRating.classList.add("rating");
 
-    divRating.append(rating1, rating2, rating3, rating4, rating5);
+    for(let i = 0; i < 5; i++) {
+
+        const rating = document.createElement("i");
+        rating.classList.add("fa", "!text-[#89A992]", "fa-star");
+        divRating.append(rating);
+
+    }
 
     const perfilFoto = document.createElement("img");
     perfilFoto.classList.add("sc-380:!hidden");
