@@ -25,6 +25,7 @@ function getBuy(link, e) {
 const URL = "";
 
 window.addEventListener("load", async function () {
+
     const wrapper = document.querySelector("div.valores");
 
     const result = await fetch(URL, {
@@ -41,6 +42,7 @@ window.addEventListener("load", async function () {
 });
 
 function montarItem(data) {
+
     const h3 = document.createElement("h3");
     h3.innerText = data.Titulo;
 
@@ -54,8 +56,8 @@ function montarItem(data) {
     div.append(h3, hr, p);
 
     return div;
-}
 
+}
 
 
 getAvaliacoes();
@@ -63,15 +65,18 @@ getAvaliacoes();
 async function getAvaliacoes() {
 
 try {
-    const respostaAvaliacacao = await fetch("https://t93pg6q8.api.sanity.io/v2022-03-07/data/query/production?query=*%5B_type+%3D%3D+%22avaliacao%22%5D%7BPerfilFoto%7Basset%7B_ref%7D%7D%2C+Nome%2C+Descricao%2C+Avaliacao%7D%0A%0A", {
+
+    const respostaAvaliacacao = await fetch("https://t93pg6q8.api.sanity.io/v2022-03-07/data/query/production?query=*%5B_type%3D%3D%27avaliacao%27%5D%7BNome%2C+Descricao%2C+PerfilFoto%7Basset+-%3E+%7Burl%7D%7D%2C+Avaliacao%7D", {
         method: "GET"
     });
 
     const json = await respostaAvaliacacao.json();
 
-    console.log(json.result);
+    for(let i = 0; i < json.result.length; i++) {
 
-    montarAvaliacao(json);
+        montarAvaliacao(json.result[i]);
+
+    }
     
 
 } catch {
@@ -88,7 +93,7 @@ function montarAvaliacao(json) {
     iconeAspas.classList.add("fa", "!text-[#ffb9b9]", "fa-quote-left");
 
     const descricaoUsuario = document.createElement("p");
-    descricaoUsuario.innerText = json.result[0].Descricao;
+    descricaoUsuario.innerText = json.Descricao;
 
     const rating1 = document.createElement("i");
     rating1.classList.add("fa", "!text-[#89A992]", "fa-star");
@@ -110,11 +115,14 @@ function montarAvaliacao(json) {
 
     divRating.append(rating1, rating2, rating3, rating4, rating5);
 
-    divUsuario.append(iconeAspas, descricaoUsuario, divRating);
-
     const perfilFoto = document.createElement("img");
     perfilFoto.classList.add("sc-380:!hidden");
-    perfilFoto.src = json.result[0].PerfilFoto.asset._ref;
+    perfilFoto.src = json.PerfilFoto.asset.url;
+
+    const nome = document.createElement("h3");
+    nome.innerText = json.Nome;
+
+    divUsuario.append(iconeAspas, descricaoUsuario, divRating, perfilFoto, nome);
 
     document.getElementById('reviews').append(divUsuario);
 
