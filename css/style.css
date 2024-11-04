@@ -819,3 +819,13 @@ form a {
 .header_product {
     background: radial-gradient(#fff, #fff3f3) !important;
 }
+
+
+.small-img-col {
+    height: 125px;
+}
+
+.small-img-col img, #productImg{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
