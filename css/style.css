@@ -398,7 +398,8 @@ input:focus {
 
 .small-img-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
 .small-img-col {

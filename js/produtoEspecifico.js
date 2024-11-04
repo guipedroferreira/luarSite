@@ -1,11 +1,17 @@
 window.addEventListener("load", (event) => {
-    getProduto();
-});
-
-async function getProduto() {
 
     const parametros = new URLSearchParams(document.location.search);
     const produtoID = parametros.get("id");
+
+    if(produtoID != null) {
+      getProduto(produtoID);
+    } else {
+      produtoNaoEncontrado();
+    }
+
+});
+
+async function getProduto(produtoID) {
 
     const url = `https://t93pg6q8.api.sanity.io/v2022-03-07/data/query/production?query=*%5B_type%3D%3D%27produto%27+%26%26+_id+%3D%3D+%27${produtoID}%27%5D%5B0%5D%7BNome%2C+Images%5B%5D%7Basset+-%3E+%7Burl%7D%7D%2C+Preco%2C+Quantidade%2C+Descricao%2C+Cores%7D`;
     
@@ -21,6 +27,8 @@ async function getProduto() {
 
       if(json.result != null) {
         montarProduto(json.result);
+      } else {
+        produtoNaoEncontrado();
       }
 
     } catch (error) {
@@ -30,7 +38,6 @@ async function getProduto() {
     }
 
 }
-
 
 function montarProduto(data) {
 
@@ -118,7 +125,6 @@ function imagensDoProduto(data) {
 
 }
 
-
 function formatarPreco(precoOriginal) {
 
     let precoEmTexto = precoOriginal.toString();
@@ -157,5 +163,26 @@ function comprar() {
 function mudarImagem(imgSrc) {
 
     document.getElementById("productImg").src = imgSrc;
+
+}
+
+function produtoNaoEncontrado() {
+
+  const pagina = document.querySelector("main");
+  pagina.innerHTML = '';
+
+  const paginaContainer = document.createElement("div");
+  paginaContainer.classList.add("text-center", "grid", "w-full", "min-h-full", "place-items-center", "px-6", "py-24", "sm:py-32", "lg:px-8");
+
+  const errorCode = document.createElement("p");
+  errorCode.classList.add("text-base", "font-semibold", "!text-[#89A992]");
+  errorCode.innerText = "404";
+
+  const errorDescription = document.createElement("h1");
+  errorDescription.classList.add("mt-4", "text-balance", "text-4xl", "font-semibold");
+  errorDescription.innerText = "Produto não Encontrado!";
+
+  paginaContainer.append(errorCode, errorDescription);
+  pagina.appendChild(paginaContainer);
 
 }
