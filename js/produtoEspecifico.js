@@ -4,7 +4,9 @@ window.addEventListener("load", (event) => {
 
 async function getProduto() {
 
-    const produtoID = '29eb8145-90b5-43a6-a2ff-ea7d30fba0b0';
+    const parametros = new URLSearchParams(document.location.search);
+    const produtoID = parametros.get("id");
+
     const url = `https://t93pg6q8.api.sanity.io/v2022-03-07/data/query/production?query=*%5B_type%3D%3D%27produto%27+%26%26+_id+%3D%3D+%27${produtoID}%27%5D%5B0%5D%7BNome%2C+Images%5B%5D%7Basset+-%3E+%7Burl%7D%7D%2C+Preco%2C+Quantidade%2C+Descricao%2C+Cores%7D`;
     
     try {
