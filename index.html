@@ -22,6 +22,7 @@
     <script src="./js/destaque.js"></script>
     <script src="./js/oQueFazemos.js"></script>
     <script src="./js/sobreNos.js"></script>
+    <script src="./js/Produtos.js"></script>
 </head>
 
 <body>
@@ -168,75 +169,8 @@
         <!--  produtos mais recentes -->
         <div class="small-container">
             <h2 class="title">Mais Vendidos</h2>
-            <div class="row sc-610:flex-col">
-                <div class="col-4">
-                    <a href="produto.html"><img class="shadow-default" src="./images/velas/happy_day_1.jpg"></a>
-                    <h4 class="mt-[5px]">Oh, Happy Day</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <section
-                        onclick="link('https://api.whatsapp.com/send/?phone=5545920013524&text=Olá, gostaria de saber mais sobre as velas da linha Oh, Happy Day.&type=phone_number&app_absent=0')"
-                        class="w-[180px] cursor-pointer flex gap-[10px] justify-center items-center h-[35px] bg-[#89A992] rounded-[50px] mt-[10px]">
-                        <p class="font-[JostMedium] text-[white]">Entrar em contato</p>
-                        <i class='bx bxl-whatsapp text-[25px] text-white '></i>
-                    </section>
-                </div>
-                <div class="col-4">
-                    <a href="produto.html"><img class="shadow-default" src="./images/velas/desjardins_4.jpg"></a>
-                    <h4 class="mt-[5px]">Aroma desjardins</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <section
-                        onclick="link('https://api.whatsapp.com/send/?phone=5545920013524&text=Olá, gostaria de saber mais sobre as velas da linha Desjardins.&type=phone_number&app_absent=0')"
-                        class="w-[180px] cursor-pointer flex gap-[10px] justify-center items-center h-[35px] bg-[#89A992] rounded-[50px] mt-[10px]">
-                        <p class="font-[JostMedium] text-[white]">Entrar em contato</p>
-                        <i class='bx bxl-whatsapp text-[25px] text-white '></i>
-                    </section>
-                </div>
-                <div class="col-4">
-                    <a href="produto.html"><img class="shadow-default" src="./images/velas/unique_1.jpg"></a>
-                    <h4 class="mt-[5px]">Aroma Unique</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <section
-                        onclick="link('https://api.whatsapp.com/send/?phone=5545920013524&text=Olá, gostaria de saber mais sobre as velas da linha Unique.&type=phone_number&app_absent=0')"
-                        class="w-[180px] cursor-pointer flex gap-[10px] justify-center items-center h-[35px] bg-[#89A992] rounded-[50px] mt-[10px]">
-                        <p class="font-[JostMedium] text-[white]">Entrar em contato</p>
-                        <i class='bx bxl-whatsapp text-[25px] text-white '></i>
-                    </section>
-                </div>
-                <div class="col-4">
-                    <a href="./produto.html"><img class="shadow-default" src="./images/velas/vinho_&_especiarias.jpg"></a>
-                    <h4 class="mt-[5px]">Vinho & especiarias</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <section
-                        onclick="link('https://api.whatsapp.com/send/?phone=5545920013524&text=Olá, gostaria de saber mais sobre as velas da linha Vinho & Especiarias.&type=phone_number&app_absent=0')"
-                        class="w-[180px] cursor-pointer flex gap-[10px] justify-center items-center h-[35px] bg-[#89A992] rounded-[50px] mt-[10px]">
-                        <p class="font-[JostMedium] text-[white]">Entrar em contato</p>
-                        <i class='bx bxl-whatsapp text-[25px] text-white '></i>
-                    </section>
-                </div>
+            <div class="row sc-610:flex-col" id = "velas">
+                
             </div>
         </div>
         <!-- Oferta -->
