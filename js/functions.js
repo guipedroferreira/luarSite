@@ -7,7 +7,6 @@ function switch_menu() {
             dropdown_menu.classList.add("opacity-[0]")
         }
     }
-
 }
 
 function link(link) {
