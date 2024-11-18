@@ -23,20 +23,28 @@ function montarDestaque(json) {
 
     json.Images.forEach((imgData, index) => {
         const imageContainer = document.createElement("div");
-        imageContainer.className = "col-3 cursor-pointer";
+        imageContainer.className = "col-3";
 
         const image = document.createElement("img");
         image.src = imgData.asset.url;
         image.classList.add("rounded-[2px]", "shadow-default");
         
-        image.style.width = index === 3 ? "80%" : "100%";  
-
-        const caption = document.createElement("p");
-        caption.className = "text-center text-[gray] mt-[5px]";
-        caption.innerText = json.Nome;
+        image.style.aspectRatio = "9/10";
+        image.style.objectFit = "cover";
 
         imageContainer.append(image);
-        imageContainer.append(caption);
+
+        if(index == 0) {
+
+            const caption = document.createElement("p");
+            caption.className = "text-center text-[gray] mt-[5px]";
+            caption.style.textAlign = "start";
+            caption.innerText = json.Nome;
+
+            imageContainer.append(caption);
+
+        }
+        
         imagens.append(imageContainer);
     });
 
